@@ -1,5 +1,5 @@
 // path.resolve provides absolute path which is required
-// in output.path and module.loaders
+// in output.path and module.loaders inclusions
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -28,7 +28,6 @@ module.exports = {
   })],
   devServer: {
     contentBase: './dist',
-    historyApiFallback: true,
-    inline: true
+    historyApiFallback: true
   }
 };
