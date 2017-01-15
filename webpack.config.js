@@ -2,36 +2,55 @@
 // in output.path and module.loaders inclusions
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var webpack = require('webpack');
 
 module.exports = {
-  entry: './src/index.jsx',
+  entry: [
+    'webpack-dev-server/client?http://localhost:8080',
+    'webpack/hot/only-dev-server',
+    './src/index.jsx'
+  ],
+
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: '/'
   },
+
   module: {
     loaders: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        loader: 'react-hot!babel'
       },
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader'
+        loader: 'style!css'
       },
       {
         test: /\.s[ac]ss$/,
-        loader: 'style-loader!css-loader!sass-loader'
+        loader: 'style!css!sass'
       }
     ]
   },
-  plugins: [new HtmlWebpackPlugin({
-    template: './src/index.html',
-    filename: 'index.html'
-  })],
+
+  resolve: {
+    extensions: ['', '.js', '.jsx']
+  },
+
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+      filename: 'index.html'
+    }),
+    new webpack.HotModuleReplacementPlugin()
+  ],
+
   devServer: {
     contentBase: './dist',
-    historyApiFallback: true
+    historyApiFallback: true,
+    inline: true,
+    hot: true
   }
 };
