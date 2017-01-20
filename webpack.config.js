@@ -12,7 +12,7 @@ module.exports = {
   ],
 
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname),
     filename: 'bundle.js',
     publicPath: '/'
   },
@@ -48,7 +48,7 @@ module.exports = {
   ],
 
   devServer: {
-    contentBase: './dist',
+    contentBase: './',
     historyApiFallback: true,
     inline: true,
     hot: true,
