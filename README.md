@@ -7,7 +7,7 @@ In terminal:
 1. `git clone <repo_url>` to clone obviously
 2. `rm -rf .git README.md` to get rid of all existing git configs and records
 3. `git init` to initialize new repo
-4. `git remote origin <url>` to add new remote for your project
+4. `git remote add origin <url>` to add new remote for your project
 5. `npm install` or `yarn install` to install packages and meet dependencies
 6. Remove/replace existing html, css and javascript files in src/ and test/ directories
 
