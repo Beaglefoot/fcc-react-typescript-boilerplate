@@ -26,5 +26,5 @@ In terminal:
 3. **React** obviously.
 4. **Redux** as alternative for state management of components.
 5. **CSS and SASS loaders** for injecting styles into resulting bundle built by webpack.
-6. **Mocha**, **Chai**, **jsdom** and **React Test Utilities** for testing components.
+6. **Mocha**, **Chai**, **jsdom**, **React Test Utilities**, **Enzyme** and **Sinon** for testing components.
 7. **React Hot Loader** for preserving the state of components and real time editing.
