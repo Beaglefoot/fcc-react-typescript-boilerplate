@@ -14,18 +14,6 @@ module.exports = Object.assign({}, devModuleConfig, {
     filename: 'bundle.js'
   },
 
-  module: {
-    rules: (
-      devModuleConfig.module.rules
-        .filter(rule => !rule.test.toString().includes('jsx'))
-        .concat({
-          test: /\.jsx?$/,
-          exclude: /node_modules/,
-          loader: 'babel-loader'
-        })
-    )
-  },
-
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',

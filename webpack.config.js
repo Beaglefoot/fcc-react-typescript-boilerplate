@@ -6,6 +6,7 @@ const webpack = require('webpack');
 
 module.exports = {
   entry: [
+    'react-hot-loader/patch',
     'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/only-dev-server',
     './src/index.jsx'
@@ -22,10 +23,7 @@ module.exports = {
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        use: [
-          'react-hot-loader',
-          'babel-loader'
-        ]
+        loader: 'babel-loader'
       },
       {
         test: /\.css$/,
@@ -54,7 +52,8 @@ module.exports = {
       template: './src/index.html',
       filename: 'index.html'
     }),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin()
   ],
 
   devServer: {
