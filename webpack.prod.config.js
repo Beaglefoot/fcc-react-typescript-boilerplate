@@ -1,29 +1,41 @@
 // path.resolve provides absolute path which is required
 // in output.path and module.loaders inclusions
-var path = require('path');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var webpack = require('webpack');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
-var moduleConfig = require('./webpack.config.js');
+const devModuleConfig = require('./webpack.config.js');
 
-moduleConfig.entry =  './src/index.jsx';
+module.exports = Object.assign({}, devModuleConfig, {
+  entry: './src/index.jsx',
 
-moduleConfig.output = {
-  path: path.resolve(__dirname),
-  filename: 'bundle.js'
-};
+  output: {
+    path: path.resolve(__dirname),
+    filename: 'bundle.js'
+  },
 
-moduleConfig.plugins = [
-  new HtmlWebpackPlugin({
-    template: './src/index.html',
-    filename: 'index.html'
-  }),
-  new webpack.DefinePlugin({
-    'process.env': {
-      NODE_ENV: JSON.stringify('production')
-    }
-  }),
-  new webpack.optimize.UglifyJsPlugin()
-];
+  module: {
+    rules: (
+      devModuleConfig.module.rules
+        .filter(rule => !rule.test.toString().includes('jsx'))
+        .concat({
+          test: /\.jsx?$/,
+          exclude: /node_modules/,
+          loader: 'babel-loader'
+        })
+    )
+  },
 
-module.exports = moduleConfig;
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+      filename: 'index.html'
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production')
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin()
+  ]
+});
