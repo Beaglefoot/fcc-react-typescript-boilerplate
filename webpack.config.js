@@ -13,6 +13,9 @@ const esIndex = babelrc.presets.findIndex(e => e === 'es2015');
 babelrc.presets[esIndex] = [ 'es2015', { 'modules': false } ];
 babelrc.plugins.push('react-hot-loader/babel');
 
+// Stop using .babelrc and instead use options provided here
+babelrc.babelrc = false;
+
 module.exports = {
   entry: [
     'react-hot-loader/patch',
