@@ -4,14 +4,12 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { AppContainer } from 'react-hot-loader';
 
-import App from './components/App';
+import App from './components/App/App';
 
-require('./css/style.css');
-require('./css/style.scss');
-
-const store = createStore(() => ({
-  msg: 'Redux store is created'
-}));
+const store = createStore(
+  () => ({ msg: 'Redux store is created' }),
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 const render = Component => (
   ReactDOM.render(
@@ -20,14 +18,14 @@ const render = Component => (
         <Component />
       </AppContainer>
     </Provider>,
-    document.querySelector('.container')
+    document.getElementById('app')
   )
 );
 
 render(App);
 
 if (module.hot) {
-  module.hot.accept('./components/App', () => {
+  module.hot.accept('./components/App/App', () => {
     render(App);
   });
 }

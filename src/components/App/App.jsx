@@ -1,11 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import TestableComponent from './TestableComponent';
+import TestableComponent from '../TestableComponent/TestableComponent';
+
+import { container } from './App.scss';
 
 function App(props) {
   return (
-    <div>
+    <div className={container}>
       <h1>freeCodeCamp React Boilerplate</h1>
       <TestableComponent />
       <p>{props.msg}</p>

@@ -23,8 +23,8 @@ In terminal:
 ## What's included
 1. **Webpack** for bundling components, running tasks and generally orchestrating the work.
 2. **Babel** for transpiling ES6 and JSX syntax.
-3. **React** obviously.
+3. **React** obviously
 4. **Redux** as alternative for state management of components.
 5. **CSS and SASS loaders** for injecting styles into resulting bundle built by webpack.
-6. **Mocha**, **Chai**, **jsdom**, **React Test Utilities**, **Enzyme** and **Sinon** for testing components.
+6. **Mocha**, **Chai**, **jsdom**, **Enzyme** and **Sinon** for testing components.
 7. **React Hot Loader** for preserving the state of components and real time editing.

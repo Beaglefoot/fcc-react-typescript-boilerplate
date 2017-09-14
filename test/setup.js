@@ -1,5 +1,5 @@
 import { JSDOM } from 'jsdom';
-import moment from 'moment';
+import { format } from 'date-fns';
 
 const dom = new JSDOM();
 global.document = dom.window.document;
@@ -9,4 +9,4 @@ Object.keys(window).forEach(key => {
   if (!(key in global)) global[key] = window[key];
 });
 
-console.log(`---------------${moment().format('HH:mm:ss')}---------------`);
+console.log(`---------------${format(new Date(), 'HH:mm:ss')}---------------`);

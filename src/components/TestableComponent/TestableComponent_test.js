@@ -2,7 +2,7 @@ import React from 'react';
 import TestUtils from 'react-dom/test-utils';
 import { expect } from 'chai';
 
-import TestableComponent from '../../src/components/TestableComponent';
+import TestableComponent from './TestableComponent';
 
 const { renderIntoDocument } = TestUtils;
 
