@@ -1,5 +1,5 @@
 SESSION_NAME="dev"
-WINDOW_NAME="react-project"
+WINDOW_NAME=$(basename $PWD)
 WORKING_DIR="$PWD"
 
 tmux new-session -d -s $SESSION_NAME
