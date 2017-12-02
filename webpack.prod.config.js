@@ -4,6 +4,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const MinifyPlugin = require("babel-minify-webpack-plugin");
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const webpack = require('webpack');
 
 const devModuleConfig = require('./webpack.config.js');
@@ -15,7 +16,8 @@ module.exports = Object.assign({}, devModuleConfig, {
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: 'dist/',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    chunkFilename: '[name].bundle.js'
   },
 
   devtool: false,
@@ -31,6 +33,7 @@ module.exports = Object.assign({}, devModuleConfig, {
       }
     }),
     new ExtractTextPlugin('style.css'),
-    new MinifyPlugin()
+    new MinifyPlugin(),
+    new BundleAnalyzerPlugin()
   ]
 });
