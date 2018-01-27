@@ -13,7 +13,7 @@
     }],
     "react"
   ],
-  "plugins": ["transform-object-rest-spread", "syntax-dynamic-import"],
+  "plugins": ["react-hot-loader/babel", "transform-object-rest-spread", "syntax-dynamic-import"],
   "env": {
     "test": {
       "presets": [
