@@ -29,6 +29,28 @@ const prodConfig = merge.smart(
             ]
           })
         },
+        {
+          test: /\.(jpe?g|png)$/i,
+          use: [
+            'file-loader',
+            {
+              loader: 'image-webpack-loader',
+              options: {
+                optipng: {
+                  optimizationLevel: 7
+                },
+                pngquant: {
+                  quality: '65-90',
+                  speed: 4
+                },
+                mozjpeg: {
+                  progressive: true,
+                  quality: 80
+                }
+              }
+            }
+          ]
+        }
       ]
     },
 

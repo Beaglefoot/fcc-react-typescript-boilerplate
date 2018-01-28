@@ -1,7 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
-const { dumper } = require('dumper');
 
 const { baseConfig, projectRootDir } = require('./webpack.base.config.js');
 
@@ -40,7 +39,5 @@ const devConfig = merge.smartStrategy({
     }
   }
 );
-
-dumper(devConfig);
 
 module.exports = devConfig;

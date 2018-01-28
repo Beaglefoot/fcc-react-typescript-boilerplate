@@ -45,6 +45,28 @@ const baseConfig = {
       {
         test: /_worker\.js$/,
         loader: 'worker-loader'
+      },
+      {
+        test: /\.(jpe?g|png)$/i,
+        loader: 'file-loader'
+      },
+      {
+        test: /\.svg$/i,
+        use: [
+          'raw-loader',
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              svgo: {
+                plugins: [
+                  { removeDimensions: true },
+                  { removeViewBox: true },
+                  { cleanupIDs: false }
+                ]
+              }
+            }
+          }
+        ]
       }
     ]
   },
