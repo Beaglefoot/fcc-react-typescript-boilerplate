@@ -4,7 +4,7 @@ const MinifyPlugin = require('babel-minify-webpack-plugin');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 
-const { baseConfig, cssLoaderOptions } = require('./webpack.base.config.js');
+const { baseConfig, cssLoaderOptions, projectRootDir } = require('./webpack.base.config.js');
 
 const prodConfig = merge.smart(
   baseConfig,
@@ -60,6 +60,7 @@ const prodConfig = merge.smart(
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify('production')
       }),
+      new CleanWebpackPlugin(['dist'], { root: projectRootDir }),
       new ExtractTextPlugin('style.css'),
       new MinifyPlugin()
     ]
