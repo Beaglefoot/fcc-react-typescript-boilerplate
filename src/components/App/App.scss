@@ -15,3 +15,15 @@
     padding-top: 2%;
   }
 }
+
+.icon {
+  $side_size: 50px;
+
+  width: $side_size;
+  height: $side_size;
+  margin: 0 auto;
+
+  svg {
+    display: block;
+  }
+}

@@ -72,7 +72,8 @@ const baseConfig = {
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
     alias: {
-      src: path.resolve(projectRootDir, 'src')
+      src: path.resolve(projectRootDir, 'src'),
+      assets: path.resolve(projectRootDir, 'assets')
     }
   },
 
