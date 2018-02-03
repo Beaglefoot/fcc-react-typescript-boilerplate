@@ -3,14 +3,15 @@ import React from 'react';
 export default class TestableComponent extends React.Component {
   constructor() {
     super();
-    
+
     this.state = { count: 0 };
   }
 
   componentDidMount() {
+    const delay = 1000;
     setInterval(() => {
       this.setState(({ count }) => ({ count: count + 1 }));
-    }, 1000);
+    }, delay);
   }
 
   componentWillUnmount() {

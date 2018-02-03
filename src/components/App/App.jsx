@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import TestableComponent from '../TestableComponent/TestableComponent';
@@ -14,6 +15,10 @@ function App(props) {
     </div>
   );
 }
+
+App.propTypes = {
+  msg: PropTypes.string.isRequired
+};
 
 function mapStateToProps({ msg }) {
   return { msg };

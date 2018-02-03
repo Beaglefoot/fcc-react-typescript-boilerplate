@@ -1,7 +1,9 @@
 # fcc-react-boilerplate
+
 A simple boilerplate for React Projects section of freeCodeCamp.
 
 ## Installation
+
 In terminal:
 
 1. `git clone <repo_url>` to clone obviously
@@ -14,13 +16,14 @@ In terminal:
 ## Usage
 
 * To run web server, either:
-`webpack-dev-server` or `npm start`
+  `webpack-dev-server` or `npm start`
 * To build for production:
-`npm run build`
+  `npm run build`
 * To run tests:
-`npm test` or `npm run test:watch` for auto run
+  `npm test` or `npm run test:watch` for auto run
 
 ## What's included
+
 1. **Webpack** for bundling components, running tasks and generally orchestrating the work.
 2. **Babel** for transpiling ES6 and JSX syntax.
 3. **React** obviously

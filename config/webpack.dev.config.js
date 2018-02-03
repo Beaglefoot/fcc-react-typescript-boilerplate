@@ -4,40 +4,36 @@ const merge = require('webpack-merge');
 
 const { baseConfig, projectRootDir } = require('./webpack.base.config.js');
 
-const port = process.env.PORT || 8080;
+const defaultPort = 8080;
+const port = process.env.PORT || defaultPort;
 
 const devConfig = merge.smartStrategy({
   entry: 'prepend'
-})(
-  baseConfig,
-  {
-    entry: [
-      'react-hot-loader/patch'
-    ],
+})(baseConfig, {
+  entry: ['react-hot-loader/patch'],
 
-    output: {
-      path: projectRootDir
-    },
+  output: {
+    path: projectRootDir
+  },
 
-    plugins: [
-      new webpack.DefinePlugin({
-        'process.env.NODE_ENV': JSON.stringify('development')
-      }),
-      new webpack.NamedModulesPlugin(),
-      new webpack.HotModuleReplacementPlugin()
-    ],
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('development')
+    }),
+    new webpack.NamedModulesPlugin(),
+    new webpack.HotModuleReplacementPlugin()
+  ],
 
-    devtool: 'source-map',
+  devtool: 'source-map',
 
-    devServer: {
-      contentBase: path.join(projectRootDir, 'dist'),
-      port,
-      inline: true,
-      hot: true,
-      open: true,
-      openPage: ''
-    }
+  devServer: {
+    contentBase: path.join(projectRootDir, 'dist'),
+    port,
+    inline: true,
+    hot: true,
+    open: true,
+    openPage: ''
   }
-);
+});
 
 module.exports = devConfig;

@@ -11,7 +11,7 @@ const store = createStore(
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
-const render = Component => (
+const render = Component => {
   ReactDOM.render(
     <Provider store={store}>
       <AppContainer>
@@ -19,8 +19,8 @@ const render = Component => (
       </AppContainer>
     </Provider>,
     document.getElementById('app')
-  )
-);
+  );
+};
 
 render(App);
 

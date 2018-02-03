@@ -1,6 +1,6 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const projectRootDir = path.resolve(__dirname, '..');
 
@@ -13,9 +13,7 @@ const cssLoaderOptions = {
 };
 
 const baseConfig = {
-  entry: [
-    path.resolve(projectRootDir, 'src/index.jsx')
-  ],
+  entry: [path.resolve(projectRootDir, 'src/index.jsx')],
 
   output: {
     path: path.resolve(projectRootDir, 'dist'),
