@@ -36,6 +36,7 @@
     "prefer-const": "error",
     "prefer-promise-reject-errors": "error",
     "no-cond-assign": "error",
+    "no-throw-literal": "error",
 
     "react/forbid-prop-types": "error",
     "react/jsx-closing-bracket-location": "error",
