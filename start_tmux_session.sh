@@ -4,12 +4,13 @@ WORKING_DIR="$PWD"
 
 tmux new-session -d -s $SESSION_NAME
 tmux rename-window $WINDOW_NAME
-tmux send-keys "cd $WORKING_DIR; webpack-dev-server --config ./config/webpack.dev.config.js" C-m
+tmux send-keys "yarn start" C-m
 
-tmux split-window -v
-tmux send-keys "cd $WORKING_DIR; explorer ." C-m
+tmux split-window -h -t {left}
 
-tmux split-window -h -t {top}
-tmux send-keys "cd $WORKING_DIR; ./run_test_watch.sh" C-m
+tmux split-window -v -t {bottom}
+tmux send-keys "yarn test:watch" C-m
+
+tmux select-pane -t {right}
 
 tmux attach -t $SESSION_NAME

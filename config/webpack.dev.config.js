@@ -30,9 +30,7 @@ const devConfig = merge.smartStrategy({
     contentBase: path.join(projectRootDir, 'dist'),
     port,
     inline: true,
-    hot: true,
-    open: true,
-    openPage: ''
+    hot: true
   }
 });
 
