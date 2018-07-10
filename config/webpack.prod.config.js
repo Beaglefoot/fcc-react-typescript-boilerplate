@@ -12,6 +12,11 @@ const {
 } = require('./webpack.base.config.js');
 
 const prodConfig = merge.smart(baseConfig, {
+  mode: 'production',
+  optimization: {
+    minimize: false
+  },
+
   output: {
     path: path.resolve(__dirname, '..', 'dist'),
     publicPath: 'dist/'

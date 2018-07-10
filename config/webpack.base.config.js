@@ -13,6 +13,8 @@ const cssLoaderOptions = {
 };
 
 const baseConfig = {
+  mode: 'development',
+
   entry: [path.resolve(projectRootDir, 'src/index.jsx')],
 
   output: {
