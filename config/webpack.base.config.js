@@ -9,13 +9,14 @@ const cssLoaderOptions = {
   sourceMap: true,
   importLoaders: 1,
   localIdentName: '[name]__[local]--[hash:base64:5]',
-  camelCase: true
+  camelCase: true,
+  namedExport: true
 };
 
 const baseConfig = {
   mode: 'development',
 
-  entry: [path.resolve(projectRootDir, 'src/index.jsx')],
+  entry: [path.resolve(projectRootDir, 'src/index.tsx')],
 
   output: {
     path: path.resolve(projectRootDir, 'dist'),
@@ -27,6 +28,17 @@ const baseConfig = {
   module: {
     rules: [
       {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'awesome-typescript-loader',
+          options: {
+            useBabel: true
+          }
+        }
+      },
+      { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
+      {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
@@ -36,7 +48,7 @@ const baseConfig = {
         use: [
           'style-loader',
           {
-            loader: 'css-loader',
+            loader: 'typings-for-css-modules-loader',
             options: cssLoaderOptions
           },
           'sass-loader'
@@ -72,7 +84,7 @@ const baseConfig = {
   },
 
   resolve: {
-    extensions: ['.js', '.jsx', '.json'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
     alias: {
       src: path.resolve(projectRootDir, 'src'),
       assets: path.resolve(projectRootDir, 'assets')

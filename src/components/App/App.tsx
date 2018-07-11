@@ -1,5 +1,4 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 import { connect } from 'react-redux';
 
 import TestableComponent from '../TestableComponent/TestableComponent';
@@ -7,7 +6,11 @@ import TestableComponent from '../TestableComponent/TestableComponent';
 import { container, icon } from './App.scss';
 import reactIcon from 'assets/react-icon.svg';
 
-function App(props) {
+export interface Props {
+  msg: string;
+}
+
+const App = (props: Props) => {
   return (
     <div className={container}>
       <h1>freeCodeCamp React Boilerplate</h1>
@@ -16,14 +19,8 @@ function App(props) {
       <p>{props.msg}</p>
     </div>
   );
-}
-
-App.propTypes = {
-  msg: PropTypes.string.isRequired
 };
 
-function mapStateToProps({ msg }) {
-  return { msg };
-}
+const mapStateToProps = ({ msg }: Props) => ({ msg });
 
 export default connect(mapStateToProps)(App);

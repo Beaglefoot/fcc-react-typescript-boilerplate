@@ -1,11 +1,10 @@
-import React from 'react';
+import * as React from 'react';
 
-export default class TestableComponent extends React.Component {
-  constructor() {
-    super();
-
-    this.state = { count: 0 };
-  }
+export default class TestableComponent extends React.Component<
+  {},
+  { count: number }
+> {
+  state = { count: 0 };
 
   componentDidMount() {
     const delay = 1000;
