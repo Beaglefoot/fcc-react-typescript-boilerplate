@@ -1,5 +1,5 @@
-import React from 'react';
-import TestUtils from 'react-dom/test-utils';
+import * as React from 'react';
+import * as TestUtils from 'react-dom/test-utils';
 import { expect } from 'chai';
 
 import TestableComponent from './TestableComponent';

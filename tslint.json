@@ -10,7 +10,8 @@
     "no-unused-variable": true,
     "curly": false,
     "member-access": [true, "no-public"],
-    "no-unused-expression": false
+    "no-unused-expression": false,
+    "interface-name": false
   },
   "rulesDirectory": []
 }

@@ -30,7 +30,7 @@ const prodConfig = merge.smart(baseConfig, {
           fallback: 'style-loader',
           use: [
             {
-              loader: 'css-loader',
+              loader: 'typings-for-css-modules-loader',
               options: cssLoaderOptions
             },
             'sass-loader'

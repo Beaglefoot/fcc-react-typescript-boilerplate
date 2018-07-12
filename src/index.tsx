@@ -8,8 +8,7 @@ import App from './components/App/App';
 
 const store = createStore(
   () => ({ msg: 'Redux store is created' }),
-  (window as any).__REDUX_DEVTOOLS_EXTENSION__ &&
-    (window as any).__REDUX_DEVTOOLS_EXTENSION__()
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 const render = (Component: React.ComponentType) => {
@@ -25,8 +24,8 @@ const render = (Component: React.ComponentType) => {
 
 render(App);
 
-// if (module.hot) {
-//   module.hot.accept('./components/App/App', () => {
-//     render(App);
-//   });
-// }
+if (module.hot) {
+  module.hot.accept('./components/App/App', () => {
+    render(App);
+  });
+}
