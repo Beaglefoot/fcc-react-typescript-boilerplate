@@ -10,6 +10,6 @@ describe('TestableComponent', () => {
   it('exists in document', () => {
     const component = renderIntoDocument(<TestableComponent />);
 
-    expect(component).to.exist; // eslint-disable-line
+    expect(component).to.exist;
   });
 });

@@ -7,8 +7,9 @@ import { AppContainer } from 'react-hot-loader';
 import App from './components/App/App';
 
 const store = createStore(
-  () => ({ msg: 'Redux store is created' })
-  // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  () => ({ msg: 'Redux store is created' }),
+  (window as any).__REDUX_DEVTOOLS_EXTENSION__ &&
+    (window as any).__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 const render = (Component: React.ComponentType) => {

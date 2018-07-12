@@ -28,21 +28,17 @@ const baseConfig = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: /\.[jt]sx?$/,
         exclude: /node_modules/,
         use: {
           loader: 'awesome-typescript-loader',
           options: {
-            useBabel: true
+            useBabel: true,
+            useCache: true
           }
         }
       },
       { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
-      {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader'
-      },
       {
         test: /\.s[ac]ss$/,
         use: [
@@ -55,7 +51,7 @@ const baseConfig = {
         ]
       },
       {
-        test: /_worker\.js$/,
+        test: /_worker\.[jt]s$/,
         loader: 'worker-loader'
       },
       {

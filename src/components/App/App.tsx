@@ -6,11 +6,11 @@ import TestableComponent from '../TestableComponent/TestableComponent';
 import { container, icon } from './App.scss';
 import reactIcon from 'assets/react-icon.svg';
 
-export interface Props {
+export interface IProps {
   msg: string;
 }
 
-const App = (props: Props) => {
+const App = (props: IProps) => {
   return (
     <div className={container}>
       <h1>freeCodeCamp React Boilerplate</h1>
@@ -21,6 +21,6 @@ const App = (props: Props) => {
   );
 };
 
-const mapStateToProps = ({ msg }: Props) => ({ msg });
+const mapStateToProps = ({ msg }: IProps) => ({ msg });
 
 export default connect(mapStateToProps)(App);
