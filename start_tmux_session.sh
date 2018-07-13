@@ -9,7 +9,7 @@ tmux send-keys "yarn start" C-m
 tmux split-window -h -t {left}
 
 tmux split-window -v -t {bottom}
-tmux send-keys "yarn test:watch" C-m
+tmux send-keys "yarn test --watch" C-m
 
 tmux select-pane -t {right}
 
