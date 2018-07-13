@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "./build",
+    "outDir": "./ts-build",
     "target": "es2017",
     "module": "es6",
     "moduleResolution": "node",

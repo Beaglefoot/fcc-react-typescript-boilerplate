@@ -51,7 +51,7 @@ const baseConfig = {
         ]
       },
       {
-        test: /_worker\.[jt]s$/,
+        test: /\.worker\.[jt]s$/,
         loader: 'worker-loader'
       },
       {
