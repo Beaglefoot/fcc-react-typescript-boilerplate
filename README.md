@@ -1,33 +1,44 @@
-# fcc-react-boilerplate
+# fcc-react-typescript-boilerplate
 
-A simple boilerplate for React Projects section of freeCodeCamp.
+Once it was a simple boilerplate for React Projects section on freeCodeCamp and although it can be used that way, the simplicity is gone...
 
 ## Installation
 
 In terminal:
 
-1. `git clone <repo_url>` to clone obviously
+1. `git clone <repo_url>`
 2. `rm -rf .git README.md` to get rid of all existing git configs and records
-3. `git init` to initialize new repo
+3. `git init` to initialize a repo anew
 4. `git remote add origin <url>` to add new remote for your project
-5. `npm install` or `yarn install` to install packages and meet dependencies
-6. Remove/replace existing html, css and javascript files in src/ and test/ directories
+5. `yarn install`
+6. Edit name, licensing, etc. in `package.json`
 
-## Usage
+## Basic Usage
 
-* To run web server, either:
-  `webpack-dev-server` or `npm start`
-* To build for production:
-  `npm run build`
-* To run tests:
-  `npm test` or `npm run test:watch` for auto run
+* Dev build and serving with webpack-dev-server:
+  ```
+  yarn start
+  ```
+* Production build:
+  ```
+  yarn build
+  ```
+* Run tests:
+  ```
+  yarn test
+  ```
+For more npm scripts check `package.json`
 
-## What's included
+## How this works
 
-1. **Webpack** for bundling components, running tasks and generally orchestrating the work.
-2. **Babel** for transpiling ES6 and JSX syntax.
-3. **React** obviously
-4. **Redux** as alternative for state management of components.
-5. **CSS and SASS loaders** for injecting styles into resulting bundle built by webpack.
-6. **Mocha**, **Chai**, **jsdom**, **Enzyme** and **Sinon** for testing components.
-7. **React Hot Loader** for preserving the state of components and real time editing.
+**Webpack** goes through entry points, analyzes the code and bundles all project dependencies together. It uses **[awesome-typescript-loader](https://github.com/s-panferov/awesome-typescript-loader)** to compile `.ts` and `.tsx` files down to JS (ES2017). Since some browsers can lack support of ES2017 features, awesome-typescript-loader also runs babel to transpile these features to something browsers can support.
+
+There are typings for **React** and **Redux** and several additional declarations to prevent TS compilation errors, when you use **Redux DevTools** or **react-hot-loader**.
+
+Styles are written with **css-modules**. **[typings-for-css-modules-loader](https://github.com/Jimdo/typings-for-css-modules-loader)** removes the pain from adding them into components by automatically generating typings.
+
+There is **Jest** testing framework, already set up to work with TS and **[Enzyme](https://github.com/airbnb/enzyme)**.
+
+Githook with **tslint** precedes any commit.
+
+There are more things behind the scenes in configs and `package.json`, but the main ideas are above.
