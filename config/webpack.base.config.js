@@ -34,7 +34,8 @@ const baseConfig = {
           loader: 'awesome-typescript-loader',
           options: {
             useBabel: true,
-            useCache: true
+            useCache: true,
+            babelCore: '@babel/core'
           }
         }
       },

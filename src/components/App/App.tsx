@@ -13,7 +13,7 @@ export interface IProps {
 const App = (props: IProps) => {
   return (
     <div className={container}>
-      <h1>freeCodeCamp React Boilerplate</h1>
+      <h1>TypeScript React Boilerplate</h1>
       <div className={icon} dangerouslySetInnerHTML={{ __html: reactIcon }} />
       <TestableComponent />
       <p>{props.msg}</p>
