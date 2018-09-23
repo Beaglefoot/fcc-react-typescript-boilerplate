@@ -7,7 +7,7 @@ const projectRootDir = path.resolve(__dirname, '..');
 const cssLoaderOptions = {
   modules: true,
   sourceMap: true,
-  importLoaders: 1,
+  importLoaders: 2,
   localIdentName: '[name]__[local]--[hash:base64:5]',
   camelCase: true,
   namedExport: true
@@ -39,7 +39,9 @@ const baseConfig = {
           }
         }
       },
+
       { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
+
       {
         test: /\.s[ac]ss$/,
         use: [
@@ -48,17 +50,21 @@ const baseConfig = {
             loader: 'typings-for-css-modules-loader',
             options: cssLoaderOptions
           },
+          'postcss-loader',
           'sass-loader'
         ]
       },
+
       {
         test: /\.worker\.[jt]s$/,
         loader: 'worker-loader'
       },
+
       {
         test: /\.(jpe?g|png)$/i,
         loader: 'file-loader'
       },
+
       {
         test: /\.svg$/i,
         use: [

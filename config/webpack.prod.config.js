@@ -33,10 +33,12 @@ const prodConfig = merge.smart(baseConfig, {
               loader: 'typings-for-css-modules-loader',
               options: cssLoaderOptions
             },
+            'postcss-loader',
             'sass-loader'
           ]
         })
       },
+
       {
         test: /\.(jpe?g|png)$/i,
         use: [
