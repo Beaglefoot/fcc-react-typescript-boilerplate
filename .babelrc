@@ -7,12 +7,14 @@
         "loose": true
       }
     ],
-    "@babel/preset-react"
+    "@babel/preset-react",
+    "@babel/preset-typescript"
   ],
   "plugins": [
     "react-hot-loader/babel",
     "@babel/plugin-proposal-object-rest-spread",
-    "@babel/plugin-syntax-dynamic-import"
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/proposal-class-properties"
   ],
   "env": {
     "test": {

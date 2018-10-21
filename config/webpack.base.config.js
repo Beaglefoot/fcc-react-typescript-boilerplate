@@ -28,14 +28,7 @@ const baseConfig = {
       {
         test: /\.[jt]sx?$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'awesome-typescript-loader',
-          options: {
-            useBabel: true,
-            useCache: true,
-            babelCore: '@babel/core'
-          }
-        }
+        loader: 'babel-loader'
       },
 
       { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
