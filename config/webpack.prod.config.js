@@ -10,6 +10,8 @@ const {
   projectRootDir
 } = require('./webpack.base.config.js');
 
+cssLoaderOptions.sourceMap = false;
+
 const prodConfig = merge.smart(baseConfig, {
   mode: 'production',
 
@@ -19,6 +21,7 @@ const prodConfig = merge.smart(baseConfig, {
 
   output: {
     path: path.resolve(__dirname, '..', 'dist'),
+    filename: 'bundle-[hash].js',
     publicPath: 'dist/'
   },
 
@@ -66,7 +69,7 @@ const prodConfig = merge.smart(baseConfig, {
 
   plugins: [
     new CleanWebpackPlugin(['dist'], { root: projectRootDir }),
-    new ExtractTextPlugin('style.css'),
+    new ExtractTextPlugin('styles-[md5:contenthash:hex:20].css'),
     new MinifyPlugin()
   ]
 });
