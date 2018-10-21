@@ -7,7 +7,7 @@
     "precommit": "lint-staged",
     "test": "jest",
     "build": "webpack --config ./config/webpack.prod.config.js",
-    "start": "webpack-dev-server --config ./config/webpack.dev.config.js",
+    "dev": "webpack-dev-server --config ./config/webpack.dev.config.js",
     "analyze": "webpack --config ./config/webpack.analyze.config.js",
     "fix:assets": "prettier --ignore-path .gitignore --write \"**/*.{json,md,scss}\"",
     "fix:code": "yarn lint --fix",

@@ -98,8 +98,7 @@ const baseConfig = {
     new HtmlWebpackPlugin({
       template: path.resolve(projectRootDir, 'src/index.html'),
       filename: path.resolve(projectRootDir, 'index.html')
-    }),
-    new webpack.NamedModulesPlugin()
+    })
   ]
 };
 

@@ -1,5 +1,4 @@
 const path = require('path');
-const webpack = require('webpack');
 const merge = require('webpack-merge');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const MinifyPlugin = require('babel-minify-webpack-plugin');
@@ -13,6 +12,7 @@ const {
 
 const prodConfig = merge.smart(baseConfig, {
   mode: 'production',
+
   optimization: {
     minimize: false
   },
@@ -64,12 +64,7 @@ const prodConfig = merge.smart(baseConfig, {
     ]
   },
 
-  devtool: false,
-
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production')
-    }),
     new CleanWebpackPlugin(['dist'], { root: projectRootDir }),
     new ExtractTextPlugin('style.css'),
     new MinifyPlugin()
