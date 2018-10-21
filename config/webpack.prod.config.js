@@ -1,7 +1,7 @@
 const path = require('path');
 const merge = require('webpack-merge');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const MinifyPlugin = require('babel-minify-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const {
@@ -16,7 +16,12 @@ const prodConfig = merge.smart(baseConfig, {
   mode: 'production',
 
   optimization: {
-    minimize: false
+    minimizer: [
+      new UglifyJsPlugin({
+        cache: true,
+        parallel: true
+      })
+    ]
   },
 
   output: {
@@ -69,8 +74,7 @@ const prodConfig = merge.smart(baseConfig, {
 
   plugins: [
     new CleanWebpackPlugin(['dist'], { root: projectRootDir }),
-    new ExtractTextPlugin('styles-[md5:contenthash:hex:20].css'),
-    new MinifyPlugin()
+    new ExtractTextPlugin('styles-[md5:contenthash:hex:20].css')
   ]
 });
 

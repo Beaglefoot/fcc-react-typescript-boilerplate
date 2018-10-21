@@ -10,6 +10,8 @@ const port = process.env.PORT || defaultPort;
 const devConfig = merge.smartStrategy({
   entry: 'prepend'
 })(baseConfig, {
+  mode: 'development',
+
   entry: ['react-hot-loader/patch'],
 
   output: {

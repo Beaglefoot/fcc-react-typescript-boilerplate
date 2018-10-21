@@ -14,8 +14,6 @@ const cssLoaderOptions = {
 };
 
 const baseConfig = {
-  mode: 'development',
-
   entry: [path.resolve(projectRootDir, 'src/index.tsx')],
 
   output: {
