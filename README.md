@@ -15,23 +15,23 @@ In terminal:
 
 ## Basic Usage
 
-* Dev build and serving with webpack-dev-server:
+- Dev build and serving with webpack-dev-server:
   ```
   yarn start
   ```
-* Production build:
+- Production build:
   ```
   yarn build
   ```
-* Run tests:
+- Run tests:
   ```
   yarn test
   ```
-For more npm scripts check `package.json`
+  For more npm scripts check `package.json`
 
 ## How this works
 
-**Webpack** goes through entry points, analyzes the code and bundles all project dependencies together. It uses **[awesome-typescript-loader](https://github.com/s-panferov/awesome-typescript-loader)** to compile `.ts` and `.tsx` files down to JS (ES2017). Since some browsers can lack support of ES2017 features, awesome-typescript-loader also runs babel to transpile these features to something browsers can support.
+**Webpack** goes through entry points, analyzes the code and bundles all project dependencies together. It uses **babel-loader** to compile `.ts` and `.tsx` files down to javascript syntax that most modern browsers can understand (`.browserslistrc`).
 
 There are typings for **React** and **Redux** and several additional declarations to prevent TS compilation errors, when you use **Redux DevTools** or **react-hot-loader**.
 
