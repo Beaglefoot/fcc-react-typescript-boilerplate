@@ -7,12 +7,8 @@ const { baseConfig, projectRootDir } = require('./webpack.base.config.js');
 const defaultPort = 8080;
 const port = process.env.PORT || defaultPort;
 
-const devConfig = merge.smartStrategy({
-  entry: 'prepend'
-})(baseConfig, {
+const devConfig = merge.smart(baseConfig, {
   mode: 'development',
-
-  entry: ['react-hot-loader/patch'],
 
   output: {
     path: projectRootDir

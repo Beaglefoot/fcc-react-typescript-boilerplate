@@ -14,7 +14,7 @@ const cssLoaderOptions = {
 };
 
 const baseConfig = {
-  entry: [path.resolve(projectRootDir, 'src/index.tsx')],
+  entry: path.resolve(projectRootDir, 'src/index.tsx'),
 
   output: {
     path: path.resolve(projectRootDir, 'dist'),

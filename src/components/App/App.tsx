@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { hot } from 'react-hot-loader';
 import { connect } from 'react-redux';
 
 import TestableComponent from '../TestableComponent/TestableComponent';
@@ -23,4 +24,4 @@ const App = (props: IProps) => {
 
 const mapStateToProps = ({ msg }: IProps) => ({ msg });
 
-export default connect(mapStateToProps)(App);
+export default hot(module)(connect(mapStateToProps)(App));

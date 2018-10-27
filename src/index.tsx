@@ -2,7 +2,6 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import { AppContainer } from 'react-hot-loader';
 
 import App from './components/App/App';
 
@@ -14,9 +13,7 @@ const store = createStore(
 const render = (Component: React.ComponentType) => {
   ReactDOM.render(
     <Provider store={store}>
-      <AppContainer>
-        <Component />
-      </AppContainer>
+      <Component />
     </Provider>,
     document.getElementById('app')
   );
