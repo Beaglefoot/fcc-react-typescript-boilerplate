@@ -28,7 +28,10 @@ const baseConfig = {
       {
         test: /\.[jt]sx?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
+        options: {
+          cacheDirectory: true
+        }
       },
 
       { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
