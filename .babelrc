@@ -11,12 +11,18 @@
     "@babel/preset-typescript"
   ],
   "plugins": [
-    "react-hot-loader/babel",
     "@babel/plugin-proposal-object-rest-spread",
     "@babel/plugin-syntax-dynamic-import",
     "@babel/proposal-class-properties"
   ],
+
   "env": {
+    "development": {
+      "plugins": [
+        "react-hot-loader/babel",
+      ]
+    },
+
     "test": {
       "presets": [
         [
