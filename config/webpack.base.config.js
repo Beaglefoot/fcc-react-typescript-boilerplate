@@ -5,12 +5,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const projectRootDir = path.resolve(__dirname, '..');
 
 const cssLoaderOptions = {
-  modules: true,
+  modules: {
+    localIdentName: '[name]__[local]--[hash:base64:5]',
+    exportGlobals: true
+  },
   sourceMap: true,
   importLoaders: 2,
-  localIdentName: '[name]__[local]--[hash:base64:5]',
-  camelCase: true,
-  namedExport: true
+  localsConvention: 'dashesOnly'
 };
 
 const baseConfig = {
@@ -40,8 +41,9 @@ const baseConfig = {
         test: /\.s[ac]ss$/,
         use: [
           'style-loader',
+          '@teamsupercell/typings-for-css-modules-loader',
           {
-            loader: 'typings-for-css-modules-loader',
+            loader: 'css-loader',
             options: cssLoaderOptions
           },
           'postcss-loader',
@@ -92,7 +94,8 @@ const baseConfig = {
     new HtmlWebpackPlugin({
       template: path.resolve(projectRootDir, 'src/index.html'),
       filename: path.resolve(projectRootDir, 'index.html')
-    })
+    }),
+    new webpack.WatchIgnorePlugin([/scss\.d\.ts$/])
   ]
 };
 
