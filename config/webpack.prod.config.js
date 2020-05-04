@@ -1,8 +1,7 @@
 const path = require('path');
 const merge = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const replaceStyleLoaderWith = require('./replaceStyleLoaderWith');
 
 const {
@@ -18,17 +17,8 @@ const prodConfig = merge.smart(
   {
     mode: 'production',
 
-    optimization: {
-      minimizer: [
-        new UglifyJsPlugin({
-          cache: true,
-          parallel: true
-        })
-      ]
-    },
-
     output: {
-      path: path.resolve(__dirname, '..', 'dist'),
+      path: path.resolve(projectRootDir, 'dist'),
       filename: 'bundle-[hash].js',
       publicPath: 'dist/'
     },
@@ -61,7 +51,7 @@ const prodConfig = merge.smart(
     },
 
     plugins: [
-      new CleanWebpackPlugin(['dist'], { root: projectRootDir }),
+      new CleanWebpackPlugin(),
       new MiniCssExtractPlugin({
         filename: 'styles-[contenthash].css'
       })

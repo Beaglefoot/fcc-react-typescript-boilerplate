@@ -29,10 +29,15 @@ const baseConfig = {
       {
         test: /\.[jt]sx?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
-        options: {
-          cacheDirectory: true
-        }
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              cacheDirectory: true
+            }
+          },
+          { loader: 'ts-loader' }
+        ]
       },
 
       { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
