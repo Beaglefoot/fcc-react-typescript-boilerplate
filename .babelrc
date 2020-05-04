@@ -18,7 +18,7 @@
 
   "env": {
     "development": {
-      "plugins": ["react-hot-loader/babel"]
+      "plugins": []
     },
 
     "test": {
