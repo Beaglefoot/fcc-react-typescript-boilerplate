@@ -1,23 +1,24 @@
 import * as React from 'react';
 
-export default class TestableComponent extends React.Component<
-  {},
-  { count: number }
-> {
+interface IState {
+  count: number;
+}
+
+export default class TestableComponent extends React.Component<{}, IState> {
   state = { count: 0 };
 
-  componentDidMount() {
+  componentDidMount(): void {
     const delay = 1000;
     setInterval(() => {
       this.setState(({ count }) => ({ count: count + 1 }));
     }, delay);
   }
 
-  componentWillUnmount() {
+  componentWillUnmount(): void {
     alert('unmounting');
   }
 
-  render() {
+  render(): JSX.Element {
     return (
       <div className="testable">
         <p>A testable component is here</p>

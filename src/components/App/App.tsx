@@ -11,7 +11,7 @@ export interface IProps {
   msg: string;
 }
 
-const App = (props: IProps) => {
+const App: React.FC<IProps> = (props) => {
   return (
     <div className={container}>
       <h1>TypeScript React Boilerplate</h1>
@@ -22,6 +22,6 @@ const App = (props: IProps) => {
   );
 };
 
-const mapStateToProps = ({ msg }: IProps) => ({ msg });
+const mapStateToProps = ({ msg }: { msg: string }): IProps => ({ msg });
 
 export default hot(module)(connect(mapStateToProps)(App));
