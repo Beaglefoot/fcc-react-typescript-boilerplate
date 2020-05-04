@@ -29,16 +29,15 @@ In terminal:
   ```
   For more npm scripts check `package.json`
 
-## How this works
+## What's included
 
-**Webpack** goes through entry points, analyzes the code and bundles all project dependencies together. It uses **babel-loader** to compile `.ts` and `.tsx` files down to javascript syntax that most modern browsers can understand (`.browserslistrc`).
+* Typescript support via **ts-loader** with source maps
+* Efficient transpiling and polyfills with **babel-loader**, **@babel/preset-env** and **browserslist**
+* **css-modules** with TS typings
+* Testing with **jest** and **enzyme**
+* Precommit githook with **eslint** and **prettier**
+* Autoprefixer
 
-There are typings for **React** and **Redux** and several additional declarations to prevent TS compilation errors, when you use **Redux DevTools** or **react-hot-loader**.
+## What's left aside
 
-Styles are written with **css-modules**. **[typings-for-css-modules-loader](https://github.com/Jimdo/typings-for-css-modules-loader)** removes the pain from adding them into components by automatically generating typings.
-
-There is **Jest** testing framework, already set up to work with TS and **[Enzyme](https://github.com/airbnb/enzyme)**.
-
-Githook with **tslint** precedes any commit.
-
-There are more things behind the scenes in configs and `package.json`, but the main ideas are above.
+* **react-hot-loader**
