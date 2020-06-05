@@ -1,13 +1,13 @@
-declare namespace AppScssModule {
+declare namespace AppScssNamespace {
   export interface IAppScss {
     container: string;
     icon: string;
   }
 }
 
-declare const AppScssModule: AppScssModule.IAppScss & {
+declare const AppScssModule: AppScssNamespace.IAppScss & {
   /** WARNING: Only available when `css-loader` is used without `style-loader` or `mini-css-extract-plugin` */
-  locals: AppScssModule.IAppScss;
+  locals: AppScssNamespace.IAppScss;
 };
 
 export = AppScssModule;
