@@ -20,7 +20,7 @@ const prodConfig = merge.smart(
     output: {
       path: path.resolve(projectRootDir, 'dist'),
       filename: 'bundle-[hash].js',
-      publicPath: 'dist/'
+      publicPath: '/'
     },
 
     module: {

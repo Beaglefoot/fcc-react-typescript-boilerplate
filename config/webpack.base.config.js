@@ -97,8 +97,7 @@ const baseConfig = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(projectRootDir, 'src/index.html'),
-      filename: path.resolve(projectRootDir, 'index.html')
+      template: path.resolve(projectRootDir, 'src/index.html')
     }),
     new webpack.WatchIgnorePlugin([/scss\.d\.ts$/])
   ]
